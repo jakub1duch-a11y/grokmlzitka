@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "mlzidla.cz — Chytré ovládání pro chladnější města",
+      "hasCanvas": false,
+      "bodyTextLen": 4602,
+      "bodyTextHash": "0a0c3f63ac55691618c557d71e7b9de6b6d42d775b1c151ebc71dac175acbcfa",
+      "bodyTextPrefix": "mlzidla.cz Produkty Městská řešení Funkce Ceník Reference Katalo",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "mlzidla.cz — Chytré ovládání pro chladnější města",
+      "hasCanvas": false,
+      "bodyTextLen": 4528,
+      "bodyTextHash": "12fdc23f48e0b7ac5429a8261bbd10d75fdb20754ad06879cf301b5fc41dfc0f",
+      "bodyTextPrefix": "mlzidla.cz SMART MLŽENÍ | MODULÁRNÍ | BEZ ČERPADLA Chytré ovládá",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
