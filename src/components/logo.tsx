@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 export function Logo({
@@ -8,8 +9,8 @@ export function Logo({
   inverted?: boolean;
 }) {
   return (
-    <a
-      href="#top"
+    <Link
+      to="/"
       className={cn(
         "inline-flex items-center gap-2 font-semibold tracking-tight",
         inverted ? "text-hero-fg" : "text-fg",
@@ -29,6 +30,6 @@ export function Logo({
         </svg>
       </span>
       <span className="text-lg">mlzidla.cz</span>
-    </a>
+    </Link>
   );
 }

@@ -10,33 +10,80 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProduktyIndexRouteImport } from './routes/produkty/index'
+import { Route as ProduktySlugRouteImport } from './routes/produkty/$slug'
+import { Route as ReseniIndexRouteImport } from './routes/reseni/index'
+import { Route as ReseniUsageRouteImport } from './routes/reseni/$usage'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProduktyIndexRoute = ProduktyIndexRouteImport.update({
+  id: '/produkty/',
+  path: '/produkty/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduktySlugRoute = ProduktySlugRouteImport.update({
+  id: '/produkty/$slug',
+  path: '/produkty/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReseniIndexRoute = ReseniIndexRouteImport.update({
+  id: '/reseni/',
+  path: '/reseni/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReseniUsageRoute = ReseniUsageRouteImport.update({
+  id: '/reseni/$usage',
+  path: '/reseni/$usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/produkty/$slug': typeof ProduktySlugRoute
+  '/reseni/$usage': typeof ReseniUsageRoute
+  '/produkty/': typeof ProduktyIndexRoute
+  '/reseni/': typeof ReseniIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/produkty/$slug': typeof ProduktySlugRoute
+  '/reseni/$usage': typeof ReseniUsageRoute
+  '/produkty': typeof ProduktyIndexRoute
+  '/reseni': typeof ReseniIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/produkty/$slug': typeof ProduktySlugRoute
+  '/reseni/$usage': typeof ReseniUsageRoute
+  '/produkty/': typeof ProduktyIndexRoute
+  '/reseni/': typeof ReseniIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/produkty/$slug' | '/reseni/$usage' | '/produkty/' | '/reseni/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/produkty/$slug' | '/reseni/$usage' | '/produkty' | '/reseni'
+  id:
+    | '__root__'
+    | '/'
+    | '/produkty/$slug'
+    | '/reseni/$usage'
+    | '/produkty/'
+    | '/reseni/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProduktySlugRoute: typeof ProduktySlugRoute
+  ReseniUsageRoute: typeof ReseniUsageRoute
+  ProduktyIndexRoute: typeof ProduktyIndexRoute
+  ReseniIndexRoute: typeof ReseniIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +95,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produkty/': {
+      id: '/produkty/'
+      path: '/produkty'
+      fullPath: '/produkty/'
+      preLoaderRoute: typeof ProduktyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produkty/$slug': {
+      id: '/produkty/$slug'
+      path: '/produkty/$slug'
+      fullPath: '/produkty/$slug'
+      preLoaderRoute: typeof ProduktySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reseni/': {
+      id: '/reseni/'
+      path: '/reseni'
+      fullPath: '/reseni/'
+      preLoaderRoute: typeof ReseniIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reseni/$usage': {
+      id: '/reseni/$usage'
+      path: '/reseni/$usage'
+      fullPath: '/reseni/$usage'
+      preLoaderRoute: typeof ReseniUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProduktySlugRoute: ProduktySlugRoute,
+  ReseniUsageRoute: ReseniUsageRoute,
+  ProduktyIndexRoute: ProduktyIndexRoute,
+  ReseniIndexRoute: ReseniIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
